@@ -175,6 +175,10 @@ class MainActivity : AppCompatActivity() {
 
         for (i in enterArray){
             count += 1
+            if(enterArray.first().toString() == "-" && i == enterArray.first()){
+                number = "-"
+                continue
+            }
             if(IsDigit(i.toString()) || i == dot){
 //             if(IsDigit(i.toString())){
                 number += i
@@ -594,6 +598,12 @@ class MainActivity : AppCompatActivity() {
 
         // function that represents sum method
 
+        if(resulEquation == ""){
+            errorText = "You can not write an operator without number"
+            errorLabel.text = errorText
+            return
+        }
+
         if(IsOperator(tempNumber)){
             resulEquation = resulEquation.dropLast(1)
             resulEquation += "+"
@@ -621,6 +631,12 @@ class MainActivity : AppCompatActivity() {
     fun minusBtn(View: View){
 
         // function that represents minus method
+
+        if(resulEquation == ""){
+            errorText = "You can not write an operator without number"
+            errorLabel.text = errorText
+            return
+        }
 
         if(IsOperator(tempNumber)){
             resulEquation = resulEquation.dropLast(1)
@@ -650,6 +666,12 @@ class MainActivity : AppCompatActivity() {
 
         // function that represents multiplying method
 
+        if(resulEquation == ""){
+            errorText = "You can not write an operator without number"
+            errorLabel.text = errorText
+            return
+        }
+
         if(IsOperator(tempNumber)){
             resulEquation = resulEquation.dropLast(1)
             resulEquation += "*"
@@ -678,6 +700,12 @@ class MainActivity : AppCompatActivity() {
 
         // function that represents dividing method
 
+        if(resulEquation == ""){
+            errorText = "You can not write an operator without number"
+            errorLabel.text = errorText
+            return
+        }
+
         if(IsOperator(tempNumber)){
             resulEquation = resulEquation.dropLast(1)
             resulEquation += "/"
@@ -705,6 +733,12 @@ class MainActivity : AppCompatActivity() {
     fun pow(View: View){
 
         // function that represents pow method
+
+        if(resulEquation == ""){
+            errorText = "You can not write an operator without number"
+            errorLabel.text = errorText
+            return
+        }
 
         if(IsOperator(tempNumber)){
             resulEquation = resulEquation.dropLast(1)
@@ -777,7 +811,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         label.text = resulEquation
-        resulEquation = ""
         tempNumber = resulEquation
         IsResult = true
         return
